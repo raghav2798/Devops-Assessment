@@ -25,7 +25,7 @@ jobs:
           terraform_wrapper: false
 
       - run: terraform fmt -check -recursive ../../
-      - run: terraform init -backend=false -input=false
+      - run: terraform init -input=false
       - run: terraform validate
       # Plan is printed in this step's log and uploaded as an artifact (no AWS access needed: plan_only = true).
       - run: terraform plan -refresh=false -input=false -no-color | tee plan.txt

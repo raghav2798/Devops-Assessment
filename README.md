@@ -17,10 +17,12 @@ Requires Terraform >= 1.10. No AWS credentials needed.
 ```bash
 cd infra/envs/dev        # or prod
 terraform fmt -check -recursive ../../
-terraform init -backend=false     # the S3 backend in backend.tf needs AWS access; skip it for review
+terraform init
 terraform validate
 terraform plan -refresh=false
 ```
+
+Remote state is configured per env in `backend.tf`, commented out so the review runs offline (uncomment and run `terraform init` for a real deployment).
 
 `plan_only = true` in `terraform.tfvars` makes the AWS provider skip credential checks so `plan` works offline. Set it to `false` for a real deployment.
 
