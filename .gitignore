@@ -1,0 +1,11 @@
+# Terraform (commit .terraform.lock.hcl, ignore the rest)
+.terraform/
+*.tfstate
+*.tfstate.*
+tfplan
+plan.txt
+crash.log
+
+# Local DB tooling
+.env
+backups/
